@@ -37,7 +37,7 @@ describe('Exercicio Extras', () =>{
     })
 
     // Extra 4
-    it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () =>{
+    it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () =>{
 
         cy.get('#firstName').type('Henrique')
         cy.get('#lastName').type('Malaquias')
@@ -91,9 +91,17 @@ describe('Exercicio Extras', () =>{
     //Extra 7
     it('envia o formulário com sucesso usando   um comando customizado', () => {
 
+        cy.clock()
+
         cy.fillMandatoryFieldsAndSubmit()
 
         cy.get('.success').should('be.visible')
+
+        cy.tick(3000)
+
+        cy.get('.success').should('not.be.visible')
+
+        
     })
 
     it('envia o formulário com sucesso usando um comando customizado', () => {
