@@ -16,6 +16,4 @@ describe('Exercicios Módulo 3', () => {
         .should('not.be.checked')
         
     })
-
-
 })
